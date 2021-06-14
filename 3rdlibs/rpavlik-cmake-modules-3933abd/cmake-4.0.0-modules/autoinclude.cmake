@@ -1,14 +1,3 @@
-# - Autoinclude these policies automatically
-#
-# Original Author:
-# 2009-2010 Ryan Pavlik <rpavlik@iastate.edu> <abiryan@ryand.net>
-# http://academic.cleardefinition.com
-# Iowa State University HCI Graduate Program/VRAC
-#
-# Copyright 2009-2010, Iowa State University
-# Distributed under the Boost Software License, Version 1.0.
-# (See accompanying file ../LICENSE_1_0.txt or copy at
-# http://www.boost.org/LICENSE_1_0.txt)
-# SPDX-License-Identifier: BSL-1.0
-
-include(RequireOutOfSourceBuild)
+version https://git-lfs.github.com/spec/v1
+oid sha256:978ac78ed06496bb9635567c9ac4bd542c13baaa286a8fa3176400e1d2c9d6f1
+size 506

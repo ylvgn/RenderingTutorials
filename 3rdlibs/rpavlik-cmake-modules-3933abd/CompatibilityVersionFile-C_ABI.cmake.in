@@ -1,16 +1,3 @@
-@GCVF_PREVIOUS_FILE@
-
-if(NOT ("${CMAKE_C_COMPILER_ABI}" STREQUAL "") AND NOT ("@CMAKE_C_COMPILER_ABI@" STREQUAL ""))
-    if(NOT "${CMAKE_C_COMPILER_ABI}" STREQUAL "@CMAKE_C_COMPILER_ABI@")
-       set(PACKAGE_VERSION "${PACKAGE_VERSION} (@CMAKE_C_COMPILER_ABI@)")
-       set(PACKAGE_VERSION_UNSUITABLE TRUE)
-       return()
-    endif()
-endif()
-
-if(NOT "${CMAKE_C_COMPILER_TARGET}" STREQUAL "@CMAKE_C_COMPILER_TARGET@")
-   set(PACKAGE_VERSION "${PACKAGE_VERSION} (@CMAKE_C_COMPILER_TARGET@)")
-   set(PACKAGE_VERSION_UNSUITABLE TRUE)
-   return()
-endif()
-# todo anything for a C ABI beyond just "basic"?
+version https://git-lfs.github.com/spec/v1
+oid sha256:090057da7c8cfd993f32664b754d84edb5c5990ca3889acd096356560540e2d4
+size 614

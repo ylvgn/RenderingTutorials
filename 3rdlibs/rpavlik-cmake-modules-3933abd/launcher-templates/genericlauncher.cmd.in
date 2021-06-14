@@ -1,17 +1,3 @@
-rem Copyright 2010, 2014 Iowa State University
-rem SPDX-License-Identifier: BSL-1.0
-
-cd @USERFILE_WORKING_DIRECTORY@
-@USERFILE_ENV_COMMANDS@
-
-IF NOT [x%1]==[x--debugger] GOTO SkipDebuggingMess
-
-ECHO Need to ditch the debugger!
-SHIFT /1
-%1 %2 %3 %4 %5 %6 %7 %8 %9
-GOTO EOF
-
-:SkipDebuggingMess
-%*
-
-:EOF
+version https://git-lfs.github.com/spec/v1
+oid sha256:a64c00ac9f62af8aa977af0b60c04722ac59b772a6057dd2aec23fc4aac354f7
+size 318

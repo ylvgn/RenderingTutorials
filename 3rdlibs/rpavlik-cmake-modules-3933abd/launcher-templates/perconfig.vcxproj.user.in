@@ -1,12 +1,3 @@
-<!--
-Copyright 2011, 2014, Iowa State University
-Copyright 2020, caseymcc
-SPDX-License-Identifier: BSL-1.0
--->
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='@USERFILE_CONFIGNAME@|@USERFILE_PLATFORM@'">
-    <LocalDebuggerEnvironment>@USERFILE_ENVIRONMENT@</LocalDebuggerEnvironment>
-    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommand>@USERFILE_COMMAND@</LocalDebuggerCommand>
-    <LocalDebuggerCommandArguments>@USERFILE_COMMAND_ARGUMENTS@</LocalDebuggerCommandArguments>
-    <LocalDebuggerWorkingDirectory>@USERFILE_WORKING_DIRECTORY@</LocalDebuggerWorkingDirectory>
-  </PropertyGroup>
+version https://git-lfs.github.com/spec/v1
+oid sha256:fdd117d98bcbf7bea70f6c0503161b3cbc0f0b8b1d796b3352139e186f6e0a74
+size 646

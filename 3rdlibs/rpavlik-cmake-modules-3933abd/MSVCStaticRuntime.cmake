@@ -1,34 +1,3 @@
-# - Modify compile flags to use the static runtimes of MSVC
-#
-#  include(MSVCStaticRuntime)
-#
-# Requires these CMake modules:
-#  ListCombinations.cmake
-#
-# Original Author:
-# 2009-2010 Ryan Pavlik <rpavlik@iastate.edu> <abiryan@ryand.net>
-# http://academic.cleardefinition.com
-# Iowa State University HCI Graduate Program/VRAC
-#
-# Copyright 2009-2010, Iowa State University
-# Distributed under the Boost Software License, Version 1.0.
-# (See accompanying file LICENSE_1_0.txt or copy at
-# http://www.boost.org/LICENSE_1_0.txt)
-# SPDX-License-Identifier: BSL-1.0
-
-if(MSVC)
-	string(TOUPPER "${CMAKE_CONFIGURATION_TYPES}" _conftypesUC)
-	include(ListCombinations)
-	list_combinations(_varnames
-		PREFIXES
-		CMAKE_C_FLAGS_
-		CMAKE_CXX_FLAGS_
-		SUFFIXES
-		${_conftypesUC})
-	foreach(_var ${_varnames})
-		string(REPLACE "/MDd" "/MTd" ${_var} "${${_var}}")
-		string(REPLACE "/MD" "/MT" ${_var} "${${_var}}")
-	endforeach()
-endif()
-
-set(Boost_USE_STATIC_LIBS ON)
+version https://git-lfs.github.com/spec/v1
+oid sha256:51300e00d6827b98704a2ce1b37b5482e1e50a43992e206d3833a9d705c53a34
+size 985

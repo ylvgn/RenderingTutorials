@@ -1,33 +1,3 @@
-<!--
-Copyright 2010, 2014, Iowa State University
-Copyright 2020, caseymcc
-SPDX-License-Identifier: BSL-1.0
--->
-		<Configuration
-			Name="@USERFILE_CONFIGNAME@|@USERFILE_PLATFORM@"
-			>
-			<DebugSettings
-				Command="@USERFILE_COMMAND@"
-				WorkingDirectory="@USERFILE_WORKING_DIRECTORY@"
-				CommandArguments="@USERFILE_COMMAND_ARGUMENTS@"
-				Attach="false"
-				DebuggerType="3"
-				Remote="1"
-				RemoteMachine="@USERFILE_REMOTE_MACHINE@"
-				RemoteCommand=""
-				HttpUrl=""
-				PDBPath=""
-				SQLDebugging=""
-				Environment="@USERFILE_ENVIRONMENT@"
-				EnvironmentMerge="true"
-				DebuggerFlavor=""
-				MPIRunCommand=""
-				MPIRunArguments=""
-				MPIRunWorkingDirectory=""
-				ApplicationCommand=""
-				ApplicationArguments=""
-				ShimCommand=""
-				MPIAcceptMode=""
-				MPIAcceptFilter=""
-			/>
-		</Configuration>
+version https://git-lfs.github.com/spec/v1
+oid sha256:4588af4e63e69e95d6476b2bbc97b64bcc2c8f0ea0c9f9a935d06f1737f24cc1
+size 852

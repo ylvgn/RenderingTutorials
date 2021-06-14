@@ -1,29 +1,3 @@
-@GCVF_PREVIOUS_FILE@
-
-if(MSVC)
-    if(NOT "${MSVC_VERSION}" STREQUAL "@MSVC_VERSION@")
-        set(PACKAGE_VERSION "${PACKAGE_VERSION} (@GCVF_WIN_CXXLAYOUT@)")
-        set(PACKAGE_VERSION_UNSUITABLE TRUE)
-        return()
-    endif()
-endif()
-
-macro(_gcvf_compute_cxxabi _var _compilerid _compilerver)
-    set(${_var})
-    if("${_compilerid}" STREQUAL "GNU" AND NOT ("${_compilerver}" STREQUAL ""))
-        if("${_compilerver}" VER_LESS 5.0)
-            # This is pre-gcc5, not compatible with post-gcc5
-            set(${_var} "g++ < 5.0")
-        else()
-            set(${_var} "g++ >= 5.0")
-        endif()
-    endif()
-endmacro()
-_gcvr_compute_cxxabi(_installed_cxx "@CMAKE_CXX_COMPILER_ID@" "@CMAKE_CXX_COMPILER_VERSION@")
-_gcvr_compute_cxxabi(_current_cxx "${CMAKE_CXX_COMPILER_ID}" "${CMAKE_CXX_COMPILER_VERSION}")
-
-# if(NOT "${_installed_cxx}" STREQUAL "${_current_cxx}")
-#     set(PACKAGE_VERSION "${PACKAGE_VERSION} (${_installed_cxx})")
-#     set(PACKAGE_VERSION_UNSUITABLE TRUE)
-#     return()
-# endif()
+version https://git-lfs.github.com/spec/v1
+oid sha256:1de98f5b58f3ab64bfefe3cf7679ff144acd42cb1a7ecf93cd0cccb03bfd4749
+size 1043

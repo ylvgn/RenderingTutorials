@@ -1,8 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-Copyright 2011, 2014, Iowa State University
-SPDX-License-Identifier: BSL-1.0
--->
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-@USERFILE_CONFIGSECTIONS@
-</Project>
+version https://git-lfs.github.com/spec/v1
+oid sha256:8a11d7d65eda6c9dd835ff781cebbeb556c291dbf09c11bcda9792c735ccde61
+size 259

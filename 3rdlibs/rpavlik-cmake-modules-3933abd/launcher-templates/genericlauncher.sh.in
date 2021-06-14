@@ -1,21 +1,3 @@
-#!/bin/sh
-# Copyright 2010-2011, Iowa State University
-# SPDX-License-Identifier: BSL-1.0
-
-bindir=$(pwd)
-cd @USERFILE_WORKING_DIRECTORY@
-@USERFILE_ENV_COMMANDS@
-if test "x$1" = "x--debugger"; then
-	shift
-	cmd="$1"
-	shift
-	if test "x@LAUNCHERS_GOT_GDB@" = "xYES"; then
-		echo "r $@" > $bindir/gdbscript
-		echo "bt" >> $bindir/gdbscript
-		@GDB_COMMAND@ -batch -command=$bindir/gdbscript @LAUNCHERS_GDB_ARG@ $cmd
-	else
-		$cmd $@
-	fi
-else
-	$@
-fi
+version https://git-lfs.github.com/spec/v1
+oid sha256:74cc69dbc25f310a6612b38d7ad675d0e555b63dbbbf000fd693527a9fb0acd4
+size 442

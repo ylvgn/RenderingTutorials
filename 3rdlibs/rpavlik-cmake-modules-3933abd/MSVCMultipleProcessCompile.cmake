@@ -1,32 +1,3 @@
-# - Compile with multiple processes on MSVC
-#
-#  include(MSVCMultipleProcessCompile)
-#
-# Requires these CMake modules:
-#  ListCombinations.cmake
-#
-# Original Author:
-# 2009-2010 Ryan Pavlik <rpavlik@iastate.edu> <abiryan@ryand.net>
-# http://academic.cleardefinition.com
-# Iowa State University HCI Graduate Program/VRAC
-#
-# Copyright 2009-2010, Iowa State University
-# Distributed under the Boost Software License, Version 1.0.
-# (See accompanying file LICENSE_1_0.txt or copy at
-# http://www.boost.org/LICENSE_1_0.txt)
-# SPDX-License-Identifier: BSL-1.0
-
-if(MSVC AND NOT "${MSVC_VERSION}" LESS 1400)
-	# Only available in VS 2005 and newer
-	string(TOUPPER "${CMAKE_CONFIGURATION_TYPES}" _conftypesUC)
-	include(ListCombinations)
-	list_combinations(_varnames
-		PREFIXES
-		CMAKE_C_FLAGS_
-		CMAKE_CXX_FLAGS_
-		SUFFIXES
-		${_conftypesUC})
-	foreach(_var ${_varnames})
-		set(${_var} "${${_var}} /MP")
-	endforeach()
-endif()
+version https://git-lfs.github.com/spec/v1
+oid sha256:24876d05f102760e2d07ad48711fcecddf0e3902c66b62b6f6634757d752b2d9
+size 948

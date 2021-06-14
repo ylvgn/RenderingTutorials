@@ -1,16 +1,3 @@
-@GCVF_PREVIOUS_FILE@
-
-set(GCVF_WIN_CXXLAYOUT)
-if(MSVC)
-    set(GCVF_WIN_CXXLAYOUT "MSVC")
-elseif(MINGW)
-    set(GCVF_WIN_CXXLAYOUT "MinGW")
-elseif(WIN32)
-    set(GCVF_WIN_CXXLAYOUT "other")
-endif()
-
-if(NOT "@GCVF_WIN_CXXLAYOUT@" STREQUAL "${GCVF_WIN_CXXLAYOUT}")
-    set(PACKAGE_VERSION "${PACKAGE_VERSION} (@GCVF_WIN_CXXLAYOUT@)")
-    set(PACKAGE_VERSION_UNSUITABLE TRUE)
-    return()
-endif()
+version https://git-lfs.github.com/spec/v1
+oid sha256:d5f4062c26f19983e23debe8f29394b2b8f6c530575ceaca84b5fafdd4d1a2bf
+size 410

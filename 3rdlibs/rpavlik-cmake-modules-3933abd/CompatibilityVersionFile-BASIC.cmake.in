@@ -1,19 +1,3 @@
-# will always be the actual version one
-# Wrapped in a macro because it's got a return before we want.
-macro(_gcvf_version)
-    @GCVF_PREVIOUS_FILE@
-endmacro()
-_gcvf_version()
-
-
-if(NOT "${CMAKE_SYSTEM_NAME}" STREQUAL "@CMAKE_SYSTEM_NAME@")
-   set(PACKAGE_VERSION "${PACKAGE_VERSION} (@CMAKE_SYSTEM_NAME@)")
-   set(PACKAGE_VERSION_UNSUITABLE TRUE)
-   return()
-endif()
-
-if(ANDROID AND NOT ("${ANDROID_ABI}" STREQUAL "@ANDROID_ABI@"))
-   set(PACKAGE_VERSION "${PACKAGE_VERSION} (Android @ANDROID_ABI@)")
-   set(PACKAGE_VERSION_UNSUITABLE TRUE)
-   return()
-endif()
+version https://git-lfs.github.com/spec/v1
+oid sha256:cd27d79c82317861c4ce9364100e4aca5a6c49b782185016bf3e63c4049c8238
+size 578
