@@ -1,0 +1,62 @@
+* -text
+* filter=lfs diff=lfs merge=lfs
+
+.gitattributes	-filter=lfs -diff=lfs -merge=lfs
+.gitignore		-filter=lfs -diff=lfs -merge=lfs
+
+*.bat		-filter=lfs -diff=lfs -merge=lfs
+
+*.c			-filter=lfs -diff=lfs -merge=lfs
+*.cc		-filter=lfs -diff=lfs -merge=lfs
+*.command	-filter=lfs -diff=lfs -merge=lfs
+*.cpp		-filter=lfs -diff=lfs -merge=lfs
+*.cs		-filter=lfs -diff=lfs -merge=lfs
+*.csv		-filter=lfs -diff=lfs -merge=lfs
+*.cxx		-filter=lfs -diff=lfs -merge=lfs
+
+*.doxyfile	-filter=lfs -diff=lfs -merge=lfs
+
+	
+*.h	 		-filter=lfs -diff=lfs -merge=lfs
+*.htm 		-filter=lfs -diff=lfs -merge=lfs
+*.html 		-filter=lfs -diff=lfs -merge=lfs
+*.hpp		-filter=lfs -diff=lfs -merge=lfs
+
+*.ini		-filter=lfs -diff=lfs -merge=lfs
+	
+*.js 		-filter=lfs -diff=lfs -merge=lfs
+*.json		-filter=lfs -diff=lfs -merge=lfs
+
+*.log		-filter=lfs -diff=lfs -merge=lfs
+	
+*.md		-filter=lfs -diff=lfs -merge=lfs
+*.mel		-filter=lfs -diff=lfs -merge=lfs
+	
+*.py		-filter=lfs -diff=lfs -merge=lfs
+
+*.rb		-filter=lfs -diff=lfs -merge=lfs
+
+*.sh		-filter=lfs -diff=lfs -merge=lfs
+*.sln		-filter=lfs -diff=lfs -merge=lfs
+*.svg		-filter=lfs -diff=lfs -merge=lfs
+	
+*.ts 		-filter=lfs -diff=lfs -merge=lfs
+*.txt		-filter=lfs -diff=lfs -merge=lfs
+
+*.uplugin	-filter=lfs -diff=lfs -merge=lfs
+*.uproject	-filter=lfs -diff=lfs -merge=lfs
+
+*.vcproj	-filter=lfs -diff=lfs -merge=lfs
+*.vsproj.filters	-filter=lfs -diff=lfs -merge=lfs
+
+# Unity Text Files
+*.anim					-filter=lfs -diff=lfs -merge=lfs
+*.asset					-filter=lfs -diff=lfs -merge=lfs
+*.controller			-filter=lfs -diff=lfs -merge=lfs
+*.mat 					-filter=lfs -diff=lfs -merge=lfs
+*.meta					-filter=lfs -diff=lfs -merge=lfs
+*.physicsMaterial2D 	-filter=lfs -diff=lfs -merge=lfs
+*.physicsMaterial 		-filter=lfs -diff=lfs -merge=lfs
+*.prefab				-filter=lfs -diff=lfs -merge=lfs
+*.shader				-filter=lfs -diff=lfs -merge=lfs
+*.unity					-filter=lfs -diff=lfs -merge=lfs
