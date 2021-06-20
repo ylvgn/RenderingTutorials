@@ -3,6 +3,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+/_[bB]uild/
 
 # Visual Studio cache directory
 .vs/
@@ -31,3 +32,4 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.exe
