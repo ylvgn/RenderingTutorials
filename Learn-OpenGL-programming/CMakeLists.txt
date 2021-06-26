@@ -52,6 +52,7 @@ foreach(PATH_NAME ${M_Tutorias})
 
 	add_executable(${SOLUTION_NAME} ${ALL_FILES})
 	target_link_libraries(${SOLUTION_NAME} ${ALL_LIBS})
+	target_include_directories(${SOLUTION_NAME} PRIVATE "${SOLUTION_NAME}/include")
 
 	if (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )
 		add_custom_command(
