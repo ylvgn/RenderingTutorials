@@ -1,6 +1,28 @@
-#include <tutorial01.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <iostream>
 using namespace std;
+//---------------------------------------------------------------
+void framebufferSizeCallback(GLFWwindow* window, int width, int height);
+void processInput(GLFWwindow* window);
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
+
+// glfw: register custom callback
+// typedef void (* GLFWframebuffersizefun)(GLFWwindow*,int,int);
+void framebufferSizeCallback(GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, width, height);
+}
+
+// process all input (listening keys pressed)
+void processInput(GLFWwindow* window)
+{
+	// on press Keycode.ESC
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+		glfwSetWindowShouldClose(window, true);
+	}
+}
 
 int main()
 {
@@ -9,10 +31,10 @@ int main()
 	// use OpenGL version 3.3+
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // specified OpenGL must support our configure (in this case 3.3)
 
 #ifdef __APPLE__
-	// Mac OS X
+	// Mac OS X configure
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
@@ -21,34 +43,37 @@ int main()
 	if (window == NULL)
 	{
 		cout << "Failed to create GLFW window" << endl;
-		// glfw: terminate, clearing all previously allocated GLFW resources.
-		glfwTerminate();
+		glfwTerminate(); // glfw: terminate, clearing all previously allocated GLFW resources.
 		return -1;
 	}
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebufferSizeCallback); // register callback for resize window
 
-	// glad: load all OpenGL function pointers (Pointer address source form glfw based on which OS we're compiling for)
+	// glad: load all OpenGL function pointers
+	// Pointer address source form glfw based on which OS we're compiling for
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
-		cout << "Failed to initialize GLAD" << endl;
+		cout << "Failed to init GLAD" << endl;
 		return -1;
 	}
 
+	// render loop
 	while (!glfwWindowShouldClose(window))
 	{
 		// input
 		processInput(window);
 
-		// rendering commands here
-		// do something ...
+		// rendering custom commands
+		glClearColor(1, 1, 0, 1);
+		glClear(GL_COLOR_BUFFER_BIT); // framebuffer (color buffer | depth buffer | stencil buffer )
 
-		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+		// glfw: swap buffers
 		glfwSwapBuffers(window);
+
+		// glfw: poll IO events (keys pressed/released, mouse moved etc.)
 		glfwPollEvents();
 	}
 
-	// glfw: terminate, clearing all previously allocated GLFW resources.
-	glfwTerminate();
+	glfwTerminate(); // glfw: terminate, clearing all previously allocated GLFW resources.
 	return 0;
 }
