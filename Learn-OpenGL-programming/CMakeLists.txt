@@ -5,8 +5,7 @@ cmake_minimum_required(VERSION 3.10)
 project(Learn-OpenGL-programming)
 
 # rpavlik-cmake-modules
-include(CreateLaunchers)
-include(MSVCMultipleProcessCompile)
+include(MSVCMultipleProcessCompile) # /MP
 
 # 3rdlibs
 include_directories(
@@ -19,6 +18,7 @@ set(ALL_LIBS
 	${OPENGL_LIBRARY}
     glfw
 	GLAD_0134 # glad-0.1.34
+	fmt::fmt  # {fmt}
 )
 
 add_definitions(
@@ -39,6 +39,7 @@ foreach(PATH_NAME ${M_Tutorias})
 	set(M_SOURCE_DIR_FULL_PATH "${CMAKE_CURRENT_SOURCE_DIR}/${SOLUTION_NAME}/")
 
 	file(GLOB_RECURSE ALL_FILES
+		"${SOLUTION_NAME}/shaders/*.*"
 		"${SOLUTION_NAME}/include/*.*"
 		"${SOLUTION_NAME}/src/*.*"
 	)
@@ -52,8 +53,11 @@ foreach(PATH_NAME ${M_Tutorias})
 
 	add_executable(${SOLUTION_NAME} ${ALL_FILES})
 	target_link_libraries(${SOLUTION_NAME} ${ALL_LIBS})
-	target_include_directories(${SOLUTION_NAME} PRIVATE "${SOLUTION_NAME}/include")
+	target_include_directories(${SOLUTION_NAME} PRIVATE "${SOLUTION_NAME}/include" )
 
+	# set properties: debugging working directories
+	set_property(TARGET ${SOLUTION_NAME} PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${M_SOURCE_DIR_FULL_PATH}")
+	# copy .exe to source dir
 	if (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )
 		add_custom_command(
 			TARGET ${SOLUTION_NAME} POST_BUILD

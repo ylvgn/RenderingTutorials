@@ -44,3 +44,6 @@ set(GLAD_SOURCE
 add_library(GLAD_0134 STATIC
 	${GLAD_SOURCE}
 )
+
+### fmt ###
+add_subdirectory (fmt)
