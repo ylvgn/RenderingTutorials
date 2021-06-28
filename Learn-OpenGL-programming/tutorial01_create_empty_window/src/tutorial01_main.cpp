@@ -3,26 +3,13 @@
 #include <iostream>
 using namespace std;
 //---------------------------------------------------------------
-void framebufferSizeCallback(GLFWwindow* window, int width, int height);
-void processInput(GLFWwindow* window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-// glfw: register custom callback
-// typedef void (* GLFWframebuffersizefun)(GLFWwindow*,int,int);
-void framebufferSizeCallback(GLFWwindow* window, int width, int height)
-{
-	glViewport(0, 0, width, height);
-}
-
-// process all input (listening keys pressed)
-void processInput(GLFWwindow* window)
-{
-	// on press Keycode.ESC
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-		glfwSetWindowShouldClose(window, true);
-	}
-}
+#pragma region functions
+void framebufferSizeCallback(GLFWwindow* window, int width, int height);
+void processInput(GLFWwindow* window);
+#pragma endregion
 
 int main()
 {
@@ -31,7 +18,7 @@ int main()
 	// use OpenGL version 3.3+
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // specified OpenGL must support our configure (in this case 3.3)
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // specified OpenGL core profile must support our configure (in this case 3.3)
 
 #ifdef __APPLE__
 	// Mac OS X configure
@@ -76,4 +63,20 @@ int main()
 
 	glfwTerminate(); // glfw: terminate, clearing all previously allocated GLFW resources.
 	return 0;
+}
+
+// glfw: register custom callback
+// typedef void (* GLFWframebuffersizefun)(GLFWwindow*,int,int);
+void framebufferSizeCallback(GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, width, height);
+}
+
+// process all input (listening keys pressed)
+void processInput(GLFWwindow* window)
+{
+	// on press Keycode.ESC
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+		glfwSetWindowShouldClose(window, true);
+	}
 }
