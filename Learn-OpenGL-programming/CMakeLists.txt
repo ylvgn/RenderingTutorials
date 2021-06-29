@@ -11,6 +11,7 @@ include(MSVCMultipleProcessCompile) # /MP
 include_directories(
 	${3RD_LIBS_DIR}/glfw-3.3.4/include/
 	${3RD_LIBS_DIR}/glad-0.1.34/include/
+	${3RD_LIBS_DIR}/glm-0.9.9.8/
 	.
 )
 

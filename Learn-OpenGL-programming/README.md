@@ -1,5 +1,7 @@
 ## Learn-OpenGL-programming
 
 ### 3rdlibs
-* [GLFW](https://www.glfw.org/download.html)
-* [GLAD](https://github.com/Dav1dde/glad)
+* [glfw](https://www.glfw.org/download.html)
+* [glad](https://github.com/Dav1dde/glad)
+* [glm](https://github.com/g-truc/glm)
+* [fmt](https://github.com/fmtlib/fmt)
