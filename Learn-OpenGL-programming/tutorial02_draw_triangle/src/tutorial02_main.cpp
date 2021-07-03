@@ -2,7 +2,6 @@
 #include <GLFW/glfw3.h>
 #include <fmt/core.h>
 #include <shader.h>
-
 using namespace std;
 //-------------------------------------------------------------------
 const int SCR_WIDTH = 800;
@@ -23,7 +22,7 @@ int main()
         fmt::print("Failed to initialize window\n");
         return 0;
     }
-
+    
     // compile and link vertex shader and fragment shader
     unsigned int shaderProgram = load_shaders();
     // or uncomment this call to load shader from file
@@ -50,9 +49,10 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     // copy buffer data
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    glEnableVertexAttribArray(0);
+    // set the vertex attributes pointers
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    // enable vertex attribute localtion 0
+    glEnableVertexAttribArray(0);
 
     // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound VBO
     // so afterwards we can safely unbind
@@ -80,8 +80,8 @@ int main()
         // draw command
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        // glBindVertexArray(0); // ps: no need to unbind it every time 
+        glDrawArrays(GL_TRIANGLES, 0, 3); // or glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices))
+        // glBindVertexArray(0);          // ps: no need to unbind it every time 
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -125,7 +125,6 @@ GLFWwindow* createWindow() {
     // ---------------------------------------
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
-
         fmt::print("Failed to initialize GLAD\n");
         return 0;
     }
@@ -156,6 +155,13 @@ unsigned int load_shaders() {
         "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
         "}\0";
 
+    // fragment shader source code
+    const char* fragmentShaderSource = "#version 330 core\n"
+        "out vec4 FragColor;\n"
+        "void main()\n"
+        "{\n"
+        "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+        "}\0";
 
     // create vertex shader
     unsigned int vertexShader;
@@ -175,16 +181,6 @@ unsigned int load_shaders() {
         glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
         fmt::print("ERROR::SHADER::VERTEX::COMPILATION_FAILED\n {}\n", infoLog);
     }
-
-
-    // fragment shader source code
-    const char* fragmentShaderSource = "#version 330 core\n"
-        "out vec4 FragColor;\n"
-        "void main()\n"
-        "{\n"
-        "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-        "}\0";
-
 
     // create fragment shader
     unsigned int fragmentShader;
