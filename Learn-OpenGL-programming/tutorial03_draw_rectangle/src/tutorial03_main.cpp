@@ -52,7 +52,7 @@ int main()
 
     // create rectangle vertices (user_data)
     vector<float> rectangle_vertices = getRectangleVertices();
-    int n = rectangle_vertices.size();
+    int n = (int)rectangle_vertices.size();
     float* vertices = &rectangle_vertices[0]; // vector<float> convert to float*
 
     // create VAO(vertex array object)
@@ -236,7 +236,8 @@ inline void check_shader_status(GLuint shader)
     glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
     if (!success) {
         glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
-        infoLog.resize(length + 1);
+        int n = length + 1;
+        infoLog.resize(n);
         glGetShaderInfoLog(shader, length, NULL, &infoLog[0]);
         printf("Error Compile Shader: %s\n", &infoLog[0]);
     }
@@ -250,7 +251,8 @@ inline void check_program_status(GLuint program)
     glGetProgramiv(program, GL_LINK_STATUS, &success);
     if (!success) {
         glGetProgramiv(program, GL_INFO_LOG_LENGTH, &length);
-        infoLog.resize(length + 1);
+        int n = length + 1;
+        infoLog.resize(n);
         glGetProgramInfoLog(program, length, NULL, &infoLog[0]);
         printf("Error Link Shader: %s\n", &infoLog[0]);
     }
