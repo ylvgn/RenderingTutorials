@@ -136,12 +136,15 @@ int main() {
 	unsigned int MVPLocation = glGetUniformLocation(shaderProgram, "MVP");
 	unsigned int timeLocation = glGetUniformLocation(shaderProgram, "time");
 
-	int count = sizeof(triangles) / sizeof(float); // count = 18 --> 5triangle = 18vertex
+	// Z-Buffer
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
 
+	int count = sizeof(triangles) / sizeof(float); // count = 18 --> 5triangle = 18vertex
 	while (!glfwWindowShouldClose(window)) {
 		// bg color
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// draw cammand
 		float time = glfwGetTime();
