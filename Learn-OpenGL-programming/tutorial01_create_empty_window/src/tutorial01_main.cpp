@@ -38,6 +38,7 @@ int main()
 
 	// glad: load all OpenGL function pointers
 	// Pointer address source form glfw based on which OS we're compiling for
+	// https://computergraphics.stackexchange.com/questions/8639/this-function-syntax-is-confusing-me
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
 		cout << "Failed to init GLAD" << endl;

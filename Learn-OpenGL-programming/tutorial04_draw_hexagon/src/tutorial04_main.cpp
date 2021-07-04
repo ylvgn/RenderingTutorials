@@ -36,7 +36,6 @@ int main() {
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
 	// glad: load all OpenGL function pointers
-	// FAQ: https://computergraphics.stackexchange.com/questions/8639/this-function-syntax-is-confusing-me
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
 		printf("GLAD init Failed\n");
 		return 0;
@@ -154,6 +153,7 @@ int main() {
 	// ps: we can just bind once before 'render loop', cause just one VAO
 	//glBindVertexArray(VAO);
 
+	int count = sizeof(triangles) / sizeof(float); // count = 12 --> 4triangle = 12vertex
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
 		// input keycode
@@ -170,7 +170,7 @@ int main() {
 		// similar glDrawArrays
 		glDrawElements(
 			GL_TRIANGLES,       // specifies the mode
-			sizeof(triangles),  // the count or number of elements we'd like to draw. in this case is 4 triangles, so we can pass 4*3 = 12(vertices)
+			count,              // the count or number of elements we'd like to draw. in this case is 4 triangles, so we can pass 4*3 = 12(vertices)
 			GL_UNSIGNED_INT,    // triangle indices's type, in this case is 'static const unsigned int'
 			0                   // allows us to specify an offset in the EBO
 		);

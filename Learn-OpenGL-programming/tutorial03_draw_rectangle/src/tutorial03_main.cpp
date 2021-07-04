@@ -52,7 +52,7 @@ int main()
 
     // create rectangle vertices (user_data)
     vector<float> rectangle_vertices = getRectangleVertices();
-    int n = (int)rectangle_vertices.size();
+    int n = (int)rectangle_vertices.size();   // n = 18 --> 2triangle = 6vertex = 18 float
     float* vertices = &rectangle_vertices[0]; // vector<float> convert to float*
 
     // create VAO(vertex array object)
@@ -83,19 +83,20 @@ int main()
     // unbind VAO VBO
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-
+    
+	// render loop
     while (!glfwWindowShouldClose(window)) {
         // input
         processInput(window);
 
         // bg color
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f); 
         glClear(GL_COLOR_BUFFER_BIT);
 
         // draw command
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, sizeof(float) * n);
+        glDrawArrays(GL_TRIANGLES, 0, 6); // 2 triangles -> 6 vertex
 
         // swap buffer
         glfwSwapBuffers(window);

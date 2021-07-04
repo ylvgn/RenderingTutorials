@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <fmt/core.h>
 #include <shader.h>
+#include <iostream>
 using namespace std;
 //-------------------------------------------------------------------
 const int SCR_WIDTH = 800;
@@ -31,14 +32,13 @@ int main()
     // user-data(VBO)
     float vertices[] =
     {
-        -0.5f, -0.5f, 0.0f,
-        0.5f, -0.7, 0.0f,
-        0.0f,  0.5f, 0.0f
+        -0.5f, -0.5f, 0.0f, // 0
+         0.5f, -0.7f, 0.0f, // 1
+         0.0f,  0.5f, 0.0f, // 2
     };
 
-    // buffer id
-    unsigned int VBO, VAO;
     // create buffer
+    unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
 
@@ -80,7 +80,7 @@ int main()
         // draw command
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3); // or glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices))
+        glDrawArrays(GL_TRIANGLES, 0, 3); // 0 start index, count = 3 vertex
         // glBindVertexArray(0);          // ps: no need to unbind it every time 
 
         glfwSwapBuffers(window);
@@ -144,8 +144,9 @@ void processInput(GLFWwindow* window) {
 
 //load shader code from string
 unsigned int load_shaders() {
+    static const int LOG_LENGTH = 512;
     int  success;
-    char infoLog[512];
+    char infoLog[LOG_LENGTH];
 
     // vertex shader source code
     const char* vertexShaderSource = "#version 330 core\n"
@@ -178,7 +179,7 @@ unsigned int load_shaders() {
     glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
     if (!success)
     {
-        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
+        glGetShaderInfoLog(vertexShader, LOG_LENGTH, NULL, infoLog);
         fmt::print("ERROR::SHADER::VERTEX::COMPILATION_FAILED\n {}\n", infoLog);
     }
 
@@ -190,7 +191,7 @@ unsigned int load_shaders() {
     glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
     if (!success)
     {
-        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
+        glGetShaderInfoLog(fragmentShader, LOG_LENGTH, NULL, infoLog);
         fmt::print("ERROR::SHADER::VERTEX::COMPILATION_FAILED\n {} \n", infoLog);
     }
 
@@ -202,7 +203,7 @@ unsigned int load_shaders() {
     glLinkProgram(shaderProgram);
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
     if (!success) {
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+        glGetProgramInfoLog(shaderProgram, LOG_LENGTH, NULL, infoLog);
         fmt::print("ERROR::SHADER::PROGRAM::LINKING_FAILED\n {}\n", infoLog);
     }
 
