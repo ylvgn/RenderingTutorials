@@ -28,7 +28,6 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 	)
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
-
 ### GLAD ###
 set(GLAD "glad-0.1.34")
 # add_subdirectory (glad-0.1.34) #cmake and compile GLAD manually then got 'glad.c'
@@ -44,6 +43,8 @@ set(GLAD_SOURCE
 add_library(GLAD_0134 STATIC
 	${GLAD_SOURCE}
 )
+#set_target_properties(GLAD_0134 PROPERTIES FOLDER "GLAD")
 
 ### fmt ###
 add_subdirectory (fmt)
+#set_target_properties(fmt PROPERTIES FOLDER "fmt")

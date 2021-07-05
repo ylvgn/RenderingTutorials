@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.10)
 
 # .sln's name
 project(Learn-OpenGL-programming)
+#set_target_properties(Learn-OpenGL-programming PROPERTIES FOLDER "Learn-OpenGL-programming/")
+#set_property(TARGET PROPERTIES FOLDER "Learn-OpenGL-programming/")
 
 # rpavlik-cmake-modules
 include(MSVCMultipleProcessCompile) # /MP
@@ -65,6 +67,8 @@ foreach(PATH_NAME ${M_Tutorias})
 			COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/${SOLUTION_NAME}${CMAKE_EXECUTABLE_SUFFIX}" "${M_SOURCE_DIR_FULL_PATH}"
 		)
 	endif()
+	# set all .vcxproj to FOLDER "Learn-OpenGL-programming"
+	set_target_properties(${SOLUTION_NAME} PROPERTIES FOLDER "Learn-OpenGL-programming")
 endforeach()
 
 
