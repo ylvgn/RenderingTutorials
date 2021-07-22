@@ -10,6 +10,30 @@ using namespace std;
 const static int SCR_WIDTH = 800, SCR_HEIGHT = 600;
 static const float ROTATE_SPEED = 0.001f;
 
+// vertex shader
+static const char* vertexShaderSource =
+"#version 330 core\n"
+"layout (location = 0) in vec3 pos;\n"
+"layout (location = 1) in vec3 _color;\n"
+"uniform mat4 MVP;\n"
+"out vec4 color;\n"
+"void main()\n"
+"{\n"
+"   gl_Position = MVP * vec4(pos, 1.0);\n"
+"   color = vec4(_color, 1.0);\n"
+"}\n";
+
+// fragment shader
+static const char* fragmentShaderSource =
+"#version 330 core\n"
+"in vec4 color;\n"
+"uniform vec4 time;\n"
+"out vec4 c;\n"
+"void main()\n"
+"{\n"
+"   c = time.w * color;\n"
+"}\0";
+
 #pragma region functions
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 void frame_buffer_size_callback(GLFWwindow* window, int width, int height);
@@ -198,30 +222,6 @@ void frame_buffer_size_callback(GLFWwindow* window, int width, int height)
 
 unsigned int loadShaders()
 {
-	// vertex shader
-	const char* vertexShaderSource =
-		"#version 330 core\n"
-		"layout (location = 0) in vec3 pos;\n"
-		"layout (location = 1) in vec3 _color;\n"
-		"uniform mat4 MVP;\n"
-		"out vec4 color;\n"
-		"void main()\n"
-		"{\n"
-		"   gl_Position = MVP * vec4(pos, 1.0);\n"
-		"   color = vec4(_color, 1.0);\n"
-		"}\n";
-
-	// fragment shader
-	const char* fragmentShaderSource =
-		"#version 330 core\n"
-		"in vec4 color;\n"
-		"uniform vec4 time;\n"
-		"out vec4 c;\n"
-		"void main()\n"
-		"{\n"
-		"   c = time.w * color;\n"
-		"}\0";
-
 	// compile shader
 	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
 	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
